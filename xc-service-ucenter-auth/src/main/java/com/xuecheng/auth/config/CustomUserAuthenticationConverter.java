@@ -23,7 +23,6 @@ public class CustomUserAuthenticationConverter extends DefaultUserAuthentication
         LinkedHashMap response = new LinkedHashMap();
         String name = authentication.getName();
         response.put("user_name", name);
-
         Object principal = authentication.getPrincipal();
         UserJwt userJwt = null;
         if(principal instanceof  UserJwt){
