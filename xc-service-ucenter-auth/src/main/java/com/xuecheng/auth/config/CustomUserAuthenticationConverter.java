@@ -14,6 +14,7 @@ import java.util.Map;
 
 @Component
 public class CustomUserAuthenticationConverter extends DefaultUserAuthenticationConverter {
+
     @Autowired
     UserDetailsService userDetailsService;
 
