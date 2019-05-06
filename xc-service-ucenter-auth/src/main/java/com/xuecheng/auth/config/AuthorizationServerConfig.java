@@ -105,7 +105,6 @@ class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
         /*Collection<TokenEnhancer> tokenEnhancers = applicationContext.getBeansOfType(TokenEnhancer.class).values();
         TokenEnhancerChain tokenEnhancerChain=new TokenEnhancerChain();
         tokenEnhancerChain.setTokenEnhancers(new ArrayList<>(tokenEnhancers));
-
         DefaultTokenServices defaultTokenServices = new DefaultTokenServices();
         defaultTokenServices.setReuseRefreshToken(true);
         defaultTokenServices.setSupportRefreshToken(true);
