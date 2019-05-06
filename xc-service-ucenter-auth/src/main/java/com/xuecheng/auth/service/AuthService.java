@@ -20,7 +20,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.DefaultResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
-
 import java.io.IOException;
 import java.net.URI;
 import java.util.Map;
@@ -35,6 +34,7 @@ public class AuthService {
 
     @Value("${auth.tokenValiditySeconds}")
     int tokenValiditySeconds;
+
     @Autowired
     LoadBalancerClient loadBalancerClient;
 
@@ -137,7 +137,6 @@ public class AuthService {
         LinkedMultiValueMap<String, String> header = new LinkedMultiValueMap<>();
         String httpBasic = getHttpBasic(clientId, clientSecret);
         header.add("Authorization",httpBasic);
-
         //定义body
         LinkedMultiValueMap<String, String> body = new LinkedMultiValueMap<>();
         body.add("grant_type","password");
@@ -146,7 +145,6 @@ public class AuthService {
 
         HttpEntity<MultiValueMap<String, String>> httpEntity = new HttpEntity<>(body, header);
         //String url, HttpMethod method, @Nullable HttpEntity<?> requestEntity, Class<T> responseType, Object... uriVariables
-
         //设置restTemplate远程调用时候，对400和401不让报错，正确返回数据
         restTemplate.setErrorHandler(new DefaultResponseErrorHandler(){
             @Override
@@ -164,7 +162,6 @@ public class AuthService {
             bodyMap.get("access_token") == null ||
                 bodyMap.get("refresh_token") == null ||
                 bodyMap.get("jti") == null){
-
             //解析spring security返回的错误信息
             if(bodyMap!=null && bodyMap.get("error_description")!=null){
                 String error_description = (String) bodyMap.get("error_description");
