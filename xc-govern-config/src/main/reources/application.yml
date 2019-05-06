@@ -1,0 +1,24 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: config-center
+  cloud:
+    config:
+      server:
+        git: #地址
+          uri: http://10.81.2.30/Server/config-repository.git
+          default-label: master
+          username: root
+          password: Hik12345+
+          force-pull: true
+
+eureka:
+  client:
+    healthcheck: enabled
+    serviceUrl:
+      #defaultZone: http://discovery1.asttops.com:8761/eureka/,http://discovery2.asttops.com:8761/eureka/
+      defaultZone: ${EUREKA_SERVER:http://localhost:50101/eureka/,http://localhost:50102/eureka/}
+  instance:
+    prefer-ip-address: true
