@@ -31,7 +31,10 @@ public class ElasticsearchConfig {
         return new RestHighLevelClient(RestClient.builder(httpHostArray));
     }
 
-    //项目主要使用RestHighLevelClient，对于低级的客户端暂时不用
+    /**
+     * 项目主要使用RestHighLevelClient，对于低级的客户端暂时不用
+     * @return
+     */
     @Bean
     public RestClient restClient(){
         //解析hostlist配置信息
