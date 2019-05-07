@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(value = XcServiceList.XC_SERVICE_UCENTER)
 public interface UserClient {
     //根据账号查询用户信息
+    @SuppressWarnings("AlibabaAbstractMethodOrInterfaceMethodMustUseJavadoc")
     @GetMapping("/ucenter/getuserext")
     public XcUserExt getUserext(@RequestParam("username") String username);
 }
