@@ -14,7 +14,6 @@ import java.util.Enumeration;
  **/
 public class FeignClientInterceptor implements RequestInterceptor {
 
-
     @Override
     public void apply(RequestTemplate requestTemplate) {
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
