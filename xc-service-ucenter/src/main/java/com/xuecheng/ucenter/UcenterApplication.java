@@ -20,7 +20,7 @@ import org.springframework.web.client.RestTemplate;
 @ComponentScan(basePackages={"com.xuecheng.framework"})//扫描common下的所有类
 @SpringBootApplication
 public class UcenterApplication {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args)  {
         SpringApplication.run(UcenterApplication.class, args);
     }
 
