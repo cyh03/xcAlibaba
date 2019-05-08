@@ -27,8 +27,15 @@ public class ChooseCourseTask {
     @Autowired
     TaskService taskService;
 
+    /**
+     * 监听添加选课的消息队列
+     * @param xcTask
+     */
     @RabbitListener(queues = RabbitMQConfig.XC_LEARNING_FINISHADDCHOOSECOURSE)
     public void receiveFinishChoosecourseTask(XcTask xcTask){
+        //1.其实在设计中，应该有一个分布式ID，防止重复选课，重复消费，需要配合redis进行业务去重
+        //2.调用支付系统或者第三方支付平台进行支付，需要进行异常处理，事务回滚
+        //3.消息队列提供了channel.basicAck机制和confirm机制，当失败的时候需要在finally里面进行处理，先加库存然后加用户的金钱
         if(xcTask!=null && StringUtils.isNotEmpty(xcTask.getId())){
             taskService.finishTask(xcTask.getId());
         }
