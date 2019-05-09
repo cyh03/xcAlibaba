@@ -92,4 +92,5 @@ public class ChooseCourseTask {
         LOGGER.info("===============测试定时任务2结束===============");
 
     }
+
 }
